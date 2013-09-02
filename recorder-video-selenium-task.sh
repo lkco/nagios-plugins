@@ -52,7 +52,7 @@ GET services
 Filter: groups >= Scenario_Web
 Filter: state > 0
 Filter: checks_enabled = 1
-Stats: state > 0
+Stats: state_type > 0
 EOF
 
 count_service_KO=$(unixcat $LIVESTATUS_SOCKET_UNIX < /tmp/query)
