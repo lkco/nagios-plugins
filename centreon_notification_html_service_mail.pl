@@ -4,6 +4,8 @@
 # Date    : Juil 4, 2017                                                #
 # Purpose : Script to send out notification service e-mails.\n";        #
 #           Generate png image if exist by centreon                     #
+#           The old script name is nagios_send_service_mail.pl written  #
+#           by Frank Migge https://github.com/fm4dd/nagios4dd           #
 # Author  : Olivier LI KIANG CHEONG olivier_at_gezen_dot_fr             #
 # Author  : Frank Migge (support at frank4dd dot com), Robert Becht     #
 # Licence : GPL - http://www.fsf.org/licenses/gpl.txt                   #
@@ -696,10 +698,10 @@ sub set_subject {
     $jp_b64 = $jp_b64 . "?= ";
   }
 
-  my %lang =  ('en' => "GFI IS Monitoring: $o_customer - $o_notificationtype service $o_servicedesc on $o_hostname is $o_servicestate",
-               'de' => "GFI IS Monitoring: $o_customer - $o_notificationtype $o_hostname mit Dienst $o_servicedesc ist $o_servicestate",
-               'jp' => "GFI IS Monitoring: $o_customer - $o_notificationtype $o_hostname".$jp_b64."$o_servicedesc $o_servicestate",
-               'fr' => "GFI IS Monitoring: $o_customer - $o_notificationtype : le service $o_servicedesc sur $o_hostname est $o_servicestate" );
+  my %lang =  ('en' => "Monitoring: $o_customer - $o_notificationtype service $o_servicedesc on $o_hostname is $o_servicestate",
+               'de' => "Monitoring: $o_customer - $o_notificationtype $o_hostname mit Dienst $o_servicedesc ist $o_servicestate",
+               'jp' => "Monitoring: $o_customer - $o_notificationtype $o_hostname".$jp_b64."$o_servicedesc $o_servicestate",
+               'fr' => "Monitoring: $o_customer - $o_notificationtype : le service $o_servicedesc sur $o_hostname est $o_servicestate" );
 
 
   if (!defined($lang{$land})) { $subject = $lang{'en'}; }
